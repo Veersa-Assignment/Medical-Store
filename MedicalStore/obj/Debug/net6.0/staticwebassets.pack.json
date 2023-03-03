@@ -5,12 +5,36 @@
       "PackagePath": "staticwebassets\\MedicalStore.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\wwwroot\\css\\header.css",
+      "PackagePath": "staticwebassets\\css\\header.css"
+    },
+    {
       "Id": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\wwwroot\\image\\five.png",
+      "PackagePath": "staticwebassets\\image\\five.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\wwwroot\\image\\four.png",
+      "PackagePath": "staticwebassets\\image\\four.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\wwwroot\\image\\one.mp4",
+      "PackagePath": "staticwebassets\\image\\one.mp4"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\wwwroot\\image\\three.gif",
+      "PackagePath": "staticwebassets\\image\\three.gif"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\wwwroot\\image\\two.gif",
+      "PackagePath": "staticwebassets\\image\\two.gif"
     },
     {
       "Id": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\wwwroot\\js\\site.js",
