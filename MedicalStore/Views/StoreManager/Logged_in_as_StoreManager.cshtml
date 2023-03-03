@@ -1,4 +1,9 @@
 ﻿@model IEnumerable<Inventory>
+@using Microsoft.AspNetCore.Http
+@using MedicalStore.Controllers
+@inject IHttpContextAccessor HttpContextAccessor
+
+
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container-fluid">
         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MedicalStore</a>
@@ -8,31 +13,41 @@
         </button>
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
             <ul class="navbar-nav flex-grow-1">
-                
+                @if(HttpContextAccessor.HttpContext.Session.GetString("role")=="StoreManager"){
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="StoreManager" asp-action="NewStoreKeeper">Add New Store Keeper</a>
                 </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="StoreManager" asp-action="Approve">Pendings</a>
+                    </li>
+                }
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="StoreManager" asp-action="AddItem">Add new Item</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="StoreManager" asp-action="Approve">Pendings</a>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="StoreManager" asp-action="LogOut">Log Out</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="StoreManager" asp-action="Billing">Billing</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<h2>
-    Logged in as Store Manager
+
+ @if(HttpContextAccessor.HttpContext.Session.GetString("role")=="StoreManager"){
+    <h2>Logged in as Store Manager</h2>
+}
+    else
+    {
+    <h2>Logged in as Store Keeper</h2>
+    }
 </h2>
 <h2>
     Inventory
 </h2>
-<a asp-controller="StoreManager" asp-action="NewStoreKeeper" >Add New StoreKeeper</a>
-<a asp-controller="StoreManager" asp-action="AddItem">Add New Item</a>
+
 <table>
     <thead>
         <tr>

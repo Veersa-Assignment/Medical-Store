@@ -11,5 +11,6 @@ namespace MedicalStore.Models
         public string Name { get; set; }
         public string Password { get; set; }
         public DateTime CreatedDateTiem { get; set; } = DateTime.Now;
+        public string role { get; set; }
     }
 }
