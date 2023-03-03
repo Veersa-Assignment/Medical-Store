@@ -21,7 +21,7 @@ namespace MedicalStore.Controllers
             var categoryFromDb = _db.StoreKeepers.Find(obj.Email);
             if (categoryFromDb != null)
             {
-                if (categoryFromDb.Passwoord == obj.Passwoord)
+                if (categoryFromDb.Password == obj.Password)
                 {
                     return RedirectToAction("Logged_in_as_StoreKeeper");
                 }
@@ -40,7 +40,28 @@ namespace MedicalStore.Controllers
         }
         public IActionResult Logged_in_as_StoreKeeper()
         {
+            IEnumerable<Inventory> objCategoryList = _db.Inventories;
+
+            return View(objCategoryList);
+        }
+        public IActionResult AddItem()
+        {
             return View();
+        }
+        [HttpPost]
+        public IActionResult AddItem(Pending obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Pendings.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Logged_in_as_StoreKeeper");
+            }
+            else
+            {
+                return View();
+            }
+
         }
     }
 }

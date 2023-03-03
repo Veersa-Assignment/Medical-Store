@@ -32,12 +32,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/DELL/source/repos/MedicalStore/MedicalStore/Views/StoreKeeper/AddItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVLZWVwZXJcQWRkSXRlbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/DELL/source/repos/MedicalStore/MedicalStore/Views/StoreKeeper/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVLZWVwZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/DELL/source/repos/MedicalStore/MedicalStore/Views/StoreKeeper/Logged_in_as_StoreKeeper.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVLZWVwZXJcTG9nZ2VkX2luX2FzX1N0b3JlS2VlcGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/MedicalStore/MedicalStore/Views/StoreManager/AddItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVNYW5hZ2VyXEFkZEl0ZW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/MedicalStore/MedicalStore/Views/StoreManager/Approve.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVNYW5hZ2VyXEFwcHJvdmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/MedicalStore/MedicalStore/Views/StoreManager/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVNYW5hZ2VyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/MedicalStore/MedicalStore/Views/StoreManager/Logged_in_as_StoreManager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVNYW5hZ2VyXExvZ2dlZF9pbl9hc19TdG9yZU1hbmFnZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/MedicalStore/MedicalStore/Views/StoreManager/NewStoreKeeper.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVNYW5hZ2VyXE5ld1N0b3JlS2VlcGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/DELL/source/repos/MedicalStore/MedicalStore/Views/_ViewImports.cshtml]

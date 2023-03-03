@@ -1,11 +1,5 @@
-﻿@model IEnumerable<Inventory>
-<h2>
-    Logged in as Store keeper
-</h2>
-<h2>
-    Inventory
-</h2>
-<a asp-controller="StoreKeeper" asp-action="AddItem">Add New Item</a>
+﻿@model IEnumerable<Pending>
+<h2>Pendings</h2>
 <table>
     <thead>
         <tr>
@@ -44,6 +38,10 @@
                 </td>
                 <td>
                     @obj.Final
+                    
+                </td>
+                <td>
+                    <a asp-controller="StoreManager" asp-action="Approved" asp-route-id="@obj.id"  >Approve</a>
                 </td>
             </tr>
         }
