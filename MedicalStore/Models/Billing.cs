@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MedicalStore.Models
 {
@@ -13,5 +15,6 @@ namespace MedicalStore.Models
         public string MedicineName { get; set; }
         public int Quantity { get; set; }
        
+
     }
 }

@@ -1,10 +1,26 @@
 ﻿@model StoreManager
-<form method="POST">
-    Name
-    <input asp-for="Name" />
-    Email
-    <input asp-for="Email" />
-    Password
-    <input asp-for="Password" />
-    <button type="submit" >Register</button>
-</form>
+<style>
+    .central {
+        text-align: center;
+        margin: 3% auto;
+    }
+</style>
+
+<body class="bodyadd">
+
+    <div class="glass-container">
+        <div class="blob">
+        </div>
+        <div class="blob2">
+        </div>
+        <form class="glass-form" method="POST">
+            <h2 class="central">Add StoreKeeper</h2>
+            <input class="inputadd" asp-for="Name" placeholder="Name">
+            <input class="inputadd" asp-for="Email" placeholder="Email">
+            <input class="inputadd" asp-for="Password" placeholder="Password" />
+          
+            <button type="submit">Register</button>
+
+        </form>
+    </div>
+</body>

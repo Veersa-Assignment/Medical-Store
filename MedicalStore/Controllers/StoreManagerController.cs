@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Dynamic;
 
 namespace MedicalStore.Controllers
 {
@@ -201,13 +203,40 @@ namespace MedicalStore.Controllers
         }
         public IActionResult Sell()
         {
-
-            return View();
+            //var store = new StoreManager();
+            //store.Inventories = _db.Inventories.Select(a => new SelectListItem()
+            //{
+            //    Value = a.MedicineName,
+            //    Text = a.MedicineName
+            //}).ToList();
+            //return View(store);
+            dynamic mymodel = new ExpandoObject();
+          
+            return View(mymodel);
         }
+
         [HttpPost]
         public IActionResult Sell(Billing obj)
         {
+            if (ModelState.IsValid)
+            {
+                var category = _db.Inventories.Where(d => d.MedicineName == obj.MedicineName);
+                if (category.Any())
+                {
+                    var a = category.ToList();
+                    a[0].StockOut += obj.Quantity;
+                    a[0].Final = a[0].StockIn - (a[0].Expired + a[0].StockOut);
 
+                    _db.Inventories.Update(a[0]);
+                    _db.SaveChanges(true);
+
+                }
+
+                _db.Billings.Add(obj);
+                _db.SaveChanges();
+                TempData["success"] = "Bill Generated Successfully";
+               
+            }
             return RedirectToAction("Billing");
         }
 

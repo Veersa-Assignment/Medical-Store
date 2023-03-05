@@ -792,3 +792,4 @@ D:\DEMOMVC\Medical-Store\MedicalStore\obj\Debug\net6.0\refint\MedicalStore.dll
 D:\DEMOMVC\Medical-Store\MedicalStore\obj\Debug\net6.0\MedicalStore.pdb
 D:\DEMOMVC\Medical-Store\MedicalStore\obj\Debug\net6.0\MedicalStore.genruntimeconfig.cache
 D:\DEMOMVC\Medical-Store\MedicalStore\obj\Debug\net6.0\ref\MedicalStore.dll
+D:\DEMOMVC\Medical-Store\MedicalStore\bin\Debug\net6.0\System.Web.Helpers.Crypto.dll
