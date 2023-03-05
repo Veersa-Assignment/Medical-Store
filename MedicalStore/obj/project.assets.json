@@ -4037,11 +4037,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\MedicalStore.csproj",
+      "projectUniqueName": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\MedicalStore.csproj",
       "projectName": "MedicalStore",
-      "projectPath": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\MedicalStore.csproj",
+      "projectPath": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\MedicalStore.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\obj\\",
+      "outputPath": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4108,7 +4108,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

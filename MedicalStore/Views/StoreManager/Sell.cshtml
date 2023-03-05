@@ -1,0 +1,26 @@
+﻿@model Billing
+<style>
+    .central {
+        text-align: center;
+        margin: 3% auto;
+    }
+</style>
+<body class="bodyadd">
+
+    <div class="glass-container">
+        <div class="blob">
+        </div>
+        <div class="blob2">
+        </div>
+        <form class="glass-form" method="POST">
+            <h2 class="central">Sell</h2>
+            <input class="inputadd" asp-for="Name" placeholder="Name">
+            <input class="inputadd" asp-for="Address" placeholder="Address">
+            <input class="inputadd" asp-for="Phone" placeholder="Phone Number">
+            <input class="inputadd" asp-for="MedicineName" placeholder="Medicine Name">
+              <input class="inputadd" asp-for="Quantity" placeholder="Quantity">
+            <button type="submit">Make Bill</button>
+
+        </form>
+    </div>
+</body>

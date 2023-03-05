@@ -192,10 +192,25 @@ namespace MedicalStore.Controllers
 
         }
         public IActionResult Billing()
+            
         {
-            return View();
+            IEnumerable<Billing> objCategoryList = _db.Billings;
+            return View(objCategoryList);
+        
 
         }
+        public IActionResult Sell()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Sell(Billing obj)
+        {
+
+            return RedirectToAction("Billing");
+        }
+
 
 
     }

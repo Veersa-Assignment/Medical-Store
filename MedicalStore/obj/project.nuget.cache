@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sNX9SVsDgN8nMMlKs+Nsnql2/NyMMducFqOCk4qHRWJymMfmutZcspR7K2VL6z+YBW2H9PDVz+zPtWZ65qLUBQ==",
+  "dgSpecHash": "ZrAQXBcTXA3e/Nyn1/RbJY8G5GogKks0XE9l2kShM+p4W29PruBi2VvYMKhSoVtKBIcFSyiZQ4J3X1Nn/J5AJg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\MedicalStore.csproj",
+  "projectFilePath": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\MedicalStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
