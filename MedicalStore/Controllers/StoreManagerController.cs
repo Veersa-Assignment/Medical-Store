@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Dynamic;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System.Web.Helpers;
+using Microsoft.AspNetCore.Identity;
+using Org.BouncyCastle.Crypto.Generators;
 
 namespace MedicalStore.Controllers
 {
@@ -32,15 +35,18 @@ namespace MedicalStore.Controllers
             var categoryFromDb = _db.StoreManagers.Find(obj.Email);
             if (categoryFromDb != null)
             {
-                if ((categoryFromDb.Password == obj.Password))
+                if (categoryFromDb.role == "StoreManager" && (categoryFromDb.Password == obj.Password))
                 {
-                    
-                    HttpContext.Session.SetString("role",categoryFromDb.role);
+                    HttpContext.Session.SetString("role", categoryFromDb.role);
+                    HttpContext.Session.SetString("Email", obj.Email); return RedirectToAction("Logged_in_as_StoreManager");
+                }
+                else if (categoryFromDb.role == "StoreKeeper" && (BCrypt.Net.BCrypt.Verify(obj.Password, categoryFromDb.Password)))
+                {
+                    HttpContext.Session.SetString("role", categoryFromDb.role);
                     HttpContext.Session.SetString("Email", obj.Email);
-                    
-
                     return RedirectToAction("Logged_in_as_StoreManager");
                 }
+                
 
             }
             TempData["failed"] = "Try Again";
@@ -48,40 +54,58 @@ namespace MedicalStore.Controllers
         }
         public IActionResult Logged_in_as_StoreManager()
         {
-            if (HttpContext.Session.GetString("role") == "")
+             
+            
+            if (HttpContext.Session.GetString("role") == "StoreManager" || HttpContext.Session.GetString("role") == "StoreKeeper")
             {
-                return RedirectToAction("Index");
+                IEnumerable<Inventory> objCategoryList = _db.Inventories;
+
+
+                return View(objCategoryList);
             }
-            IEnumerable<Inventory> objCategoryList = _db.Inventories;
+            return RedirectToAction("Index");
 
 
-            return View(objCategoryList);
         }
         public IActionResult NewStoreKeeper()
         {
-            
-            return View();
+            if (HttpContext.Session.GetString("role") == "StoreManager")
+            {
+
+                return View();
+            }
+            return RedirectToAction("Index");
         }
         [HttpPost]
         public IActionResult NewStoreKeeper(StoreManager obj)
         {
-            if (ModelState.IsValid)
+            if (HttpContext.Session.GetString("role") == "StoreManager")
             {
+                if (ModelState.IsValid)
+                {
 
 
-                obj.role = "StoreKeeper";
-                
-                _db.StoreManagers.Add(obj);
-                _db.SaveChanges();
-                TempData["success"] = "StoreKeeper Added Successfully";
-                HttpContext.Session.SetString("role", "StoreManager");
-                return RedirectToAction("Logged_in_as_StoreManager");
+                    obj.role = "StoreKeeper";
+                    obj.Password = BCrypt.Net.BCrypt.HashPassword(obj.Password);
+
+                    _db.StoreManagers.Add(obj);
+                    _db.SaveChanges();
+                    TempData["success"] = "StoreKeeper Added Successfully";
+                    HttpContext.Session.SetString("role", "StoreManager");
+                    return RedirectToAction("Logged_in_as_StoreManager");
+                }
+                return View();
             }
-            return View();
+            return RedirectToAction("Index");
         }
         public IActionResult AddItem()
         {
-            return View();
+            if (HttpContext.Session.GetString("role") == "StoreManager" || HttpContext.Session.GetString("role") == "StoreKeeper")
+            {
+
+                return View();
+            }
+            return RedirectToAction("Index");
         }
         [HttpPost]
         public async Task<IActionResult> AddItem(Inventory obj)
@@ -159,46 +183,54 @@ namespace MedicalStore.Controllers
         
         public IActionResult Approve()
         {
-            IEnumerable<Pending> objCategoryList = _db.Pendings;
-            HttpContext.Session.SetString("role", "StoreManager");
+            if (HttpContext.Session.GetString("role") == "StoreManager" || HttpContext.Session.GetString("role")=="StoreKeeper")
+            {
+                IEnumerable<Pending> objCategoryList = _db.Pendings;
+                HttpContext.Session.SetString("role", "StoreManager");
 
-            return View(objCategoryList);
+                return View(objCategoryList);
+            }
+            return RedirectToAction("Index");
+           
             
         }
         public IActionResult Approved(int? id)
         {
-            var obj=_db.Pendings.Find(id);
-            var category = _db.Inventories.Where(d => d.MedicineName == obj.MedicineName);
-            List<Inventory> a = new List<Inventory>();
-            if (category.Any())
-
-
+            if (HttpContext.Session.GetString("role") == "StoreManager" || HttpContext.Session.GetString("role") == "StoreKeeper")
             {
-                a = category.ToList();
-                a[0].StockIn += obj.StockIn;
-                a[0].Expired += obj.Expired;
-                a[0].Final = a[0].StockIn - (a[0].Expired + a[0].StockOut);
-                _db.Inventories.Update(a[0]);
+                var obj = _db.Pendings.Find(id);
+                var category = _db.Inventories.Where(d => d.MedicineName == obj.MedicineName);
+                List<Inventory> a = new List<Inventory>();
+                if (category.Any())
+
+
+                {
+                    a = category.ToList();
+                    a[0].StockIn += obj.StockIn;
+                    a[0].Expired += obj.Expired;
+                    a[0].Final = a[0].StockIn - (a[0].Expired + a[0].StockOut);
+                    _db.Inventories.Update(a[0]);
+                }
+                else
+                {
+                    var b = new Inventory();
+
+                    b.StockIn = obj.StockIn;
+                    b.Expired = obj.Expired;
+                    b.StockOut = 0;
+                    b.Approved = 1;
+                    b.MedicineName = obj.MedicineName;
+                    b.Final = b.StockIn - b.Expired;
+                    _db.Inventories.Add(b);
+                }
+                var query = _db.Pendings.Remove(obj);
+
+
+                _db.SaveChanges(true);
+
+                return RedirectToAction("Logged_in_as_StoreManager");
             }
-            else
-            {
-                var b=new Inventory();
-               
-                b.StockIn = obj.StockIn;
-                b.Expired = obj.Expired;
-                b.StockOut = 0;
-                b.Approved = 1;
-                b.MedicineName = obj.MedicineName;
-                b.Final = b.StockIn - b.Expired;
-                _db.Inventories.Add(b);
-            }
-            var query = _db.Pendings.Remove(obj);
-
-
-            _db.SaveChanges(true);
-            HttpContext.Session.SetString("role", "StoreManager");
-            return RedirectToAction("Logged_in_as_StoreManager");
-
+            return RedirectToAction("Index");
             
             
 
@@ -216,20 +248,28 @@ namespace MedicalStore.Controllers
         public IActionResult Billing()
             
         {
-            IEnumerable<Billing> objCategoryList = _db.Billings;
-            return View(objCategoryList);
+            if (HttpContext.Session.GetString("role") == "StoreManager" || HttpContext.Session.GetString("role") == "StoreKeeper")
+            {
+                IEnumerable<Billing> objCategoryList = _db.Billings;
+                return View(objCategoryList);
+            }
+            return RedirectToAction("Index");
         
 
         }
         public IActionResult Sell(int? id)
         {
-            var med= _db.Inventories.Find(id);
-            if (med != null)
+            if (HttpContext.Session.GetString("role") == "StoreManager" || HttpContext.Session.GetString("role") == "StoreKeeper")
             {
-                ViewBag.Medicine = med.MedicineName;
-                ViewBag.Qty = med.Final;
+                var med = _db.Inventories.Find(id);
+                if (med != null)
+                {
+                    ViewBag.Medicine = med.MedicineName;
+                    ViewBag.Qty = med.Final;
+                }
+                return View();
             }
-            return View();
+            return RedirectToAction("Index");   
 
 
             
@@ -239,27 +279,31 @@ namespace MedicalStore.Controllers
         public IActionResult Sell(Billing obj)
           
         {
-            obj.id = 0;
-            if (ModelState.IsValid)
+            if (HttpContext.Session.GetString("role") == "StoreManager" || HttpContext.Session.GetString("role") == "StoreKeeper")
             {
-                var category = _db.Inventories.Where(d => d.MedicineName == obj.MedicineName);
-                if (category.Any())
+                obj.id = 0;
+                if (ModelState.IsValid)
                 {
-                    var a = category.ToList();
-                    a[0].StockOut += obj.Quantity;
-                    a[0].Final = a[0].StockIn - (a[0].Expired + a[0].StockOut);
+                    var category = _db.Inventories.Where(d => d.MedicineName == obj.MedicineName);
+                    if (category.Any())
+                    {
+                        var a = category.ToList();
+                        a[0].StockOut += obj.Quantity;
+                        a[0].Final = a[0].StockIn - (a[0].Expired + a[0].StockOut);
 
-                    _db.Inventories.Update(a[0]);
-                    _db.SaveChanges(true);
+                        _db.Inventories.Update(a[0]);
+                        _db.SaveChanges(true);
+
+                    }
+
+                    _db.Billings.Add(obj);
+                    _db.SaveChanges();
+                    TempData["success"] = "Bill Generated Successfully";
 
                 }
-
-                _db.Billings.Add(obj);
-                _db.SaveChanges();
-                TempData["success"] = "Bill Generated Successfully";
-               
+                return RedirectToAction("Billing");
             }
-            return RedirectToAction("Billing");
+            return RedirectToAction("Index");
         }
 
 

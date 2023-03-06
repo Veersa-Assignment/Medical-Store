@@ -794,3 +794,6 @@ D:\DEMOMVC\Medical-Store\MedicalStore\obj\Debug\net6.0\MedicalStore.genruntimeco
 D:\DEMOMVC\Medical-Store\MedicalStore\obj\Debug\net6.0\ref\MedicalStore.dll
 D:\DEMOMVC\Medical-Store\MedicalStore\bin\Debug\net6.0\System.Web.Helpers.Crypto.dll
 C:\Users\DELL\source\repos\MedicalStore\MedicalStore\bin\Debug\net6.0\System.Web.Helpers.Crypto.dll
+C:\Users\DELL\source\repos\MedicalStore\MedicalStore\bin\Debug\net6.0\DevOne.Security.Cryptography.BCrypt.dll
+C:\Users\DELL\source\repos\MedicalStore\MedicalStore\bin\Debug\net6.0\BCrypt.Net-Next.dll
+C:\Users\DELL\source\repos\MedicalStore\MedicalStore\bin\Debug\net6.0\BouncyCastle.Crypto.dll
