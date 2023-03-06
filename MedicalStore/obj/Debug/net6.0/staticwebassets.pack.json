@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\MedicalStore.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\wwwroot\\css\\additem.css",
+      "PackagePath": "staticwebassets\\css\\additem.css"
+    },
+    {
       "Id": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\wwwroot\\css\\header.css",
       "PackagePath": "staticwebassets\\css\\header.css"
     },

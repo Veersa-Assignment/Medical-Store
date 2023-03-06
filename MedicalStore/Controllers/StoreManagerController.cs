@@ -6,6 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Dynamic;
+using System.Security.Cryptography;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
 namespace MedicalStore.Controllers
 {
@@ -44,6 +48,10 @@ namespace MedicalStore.Controllers
         }
         public IActionResult Logged_in_as_StoreManager()
         {
+            if (HttpContext.Session.GetString("role") == "")
+            {
+                return RedirectToAction("Index");
+            }
             IEnumerable<Inventory> objCategoryList = _db.Inventories;
 
 
@@ -51,23 +59,25 @@ namespace MedicalStore.Controllers
         }
         public IActionResult NewStoreKeeper()
         {
-            HttpContext.Session.SetString("role", "StoreManager");
+            
             return View();
         }
         [HttpPost]
         public IActionResult NewStoreKeeper(StoreManager obj)
         {
-            
-                
+            if (ModelState.IsValid)
+            {
+
+
                 obj.role = "StoreKeeper";
-            
                 
                 _db.StoreManagers.Add(obj);
                 _db.SaveChanges();
                 TempData["success"] = "StoreKeeper Added Successfully";
-            HttpContext.Session.SetString("role", "StoreManager");
-            return RedirectToAction("Logged_in_as_StoreManager");
-            
+                HttpContext.Session.SetString("role", "StoreManager");
+                return RedirectToAction("Logged_in_as_StoreManager");
+            }
+            return View();
         }
         public IActionResult AddItem()
         {
@@ -76,10 +86,11 @@ namespace MedicalStore.Controllers
         [HttpPost]
         public async Task<IActionResult> AddItem(Inventory obj)
         {
-            if (ModelState.IsValid)
-            {
+            
                 var role = HttpContext.Session.GetString("role");
-                if (role == "StoreKeeper")
+            if (role == "StoreKeeper")
+            {
+                if (ModelState.IsValid)
                 {
                     Pending obj2 = new Pending();
                     obj2.MedicineName = obj.MedicineName;
@@ -90,12 +101,21 @@ namespace MedicalStore.Controllers
                     obj2.Final = obj.StockIn - obj.Expired;
                     await _db.Pendings.AddAsync(obj2);
                     await _db.SaveChangesAsync();
-                    HttpContext.Session.SetString("role", "StoreKeeper");
+
 
                     return RedirectToAction("Logged_in_as_StoreManager");
                 }
-                else if (role == "StoreManager")
+                else
                 {
+                    return View();
+                }
+            }
+            else if (role == "StoreManager")
+            {
+                if (ModelState.IsValid)
+                {
+
+
                     obj.Approved = 1;
                     obj.Final = obj.StockIn - obj.Expired;
                     var category = _db.Inventories.Where(d => d.MedicineName == obj.MedicineName);
@@ -125,16 +145,18 @@ namespace MedicalStore.Controllers
                     HttpContext.Session.SetString("role", "StoreManager");
                     return RedirectToAction("Logged_in_as_StoreManager");
                 }
+                else
+                {
+                    return View();
+                }
+            }
                 return RedirectToAction("Index");
 
             }
 
-            else
-            {
-                return RedirectToAction("Index");
-            }
+           
 
-        }
+        
         public IActionResult Approve()
         {
             IEnumerable<Pending> objCategoryList = _db.Pendings;
@@ -192,10 +214,54 @@ namespace MedicalStore.Controllers
 
         }
         public IActionResult Billing()
+            
         {
-            return View();
+            IEnumerable<Billing> objCategoryList = _db.Billings;
+            return View(objCategoryList);
+        
 
         }
+        public IActionResult Sell(int? id)
+        {
+            var med= _db.Inventories.Find(id);
+            if (med != null)
+            {
+                ViewBag.Medicine = med.MedicineName;
+                ViewBag.Qty = med.Final;
+            }
+            return View();
+
+
+            
+        }
+
+        [HttpPost]
+        public IActionResult Sell(Billing obj)
+          
+        {
+            obj.id = 0;
+            if (ModelState.IsValid)
+            {
+                var category = _db.Inventories.Where(d => d.MedicineName == obj.MedicineName);
+                if (category.Any())
+                {
+                    var a = category.ToList();
+                    a[0].StockOut += obj.Quantity;
+                    a[0].Final = a[0].StockIn - (a[0].Expired + a[0].StockOut);
+
+                    _db.Inventories.Update(a[0]);
+                    _db.SaveChanges(true);
+
+                }
+
+                _db.Billings.Add(obj);
+                _db.SaveChanges();
+                TempData["success"] = "Bill Generated Successfully";
+               
+            }
+            return RedirectToAction("Billing");
+        }
+
 
 
     }

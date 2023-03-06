@@ -15,6 +15,8 @@ namespace MedicalStore.Data
         public DbSet<StoreManager> StoreManagers { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<Pending> Pendings { get; set; }
+        public DbSet<Billing> Billings { get; set; }
+    
 
     }
 }

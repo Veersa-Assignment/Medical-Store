@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yF1UTlxpXWnH+ecc14Z55Yir6cHv0cotd706uOc7BZw=",
+  "Hash": "eMKABGoDKAitQVdPMPM30NQguY/W1stOGkDHMIhLNQc=",
   "Source": "MedicalStore",
   "BasePath": "_content/MedicalStore",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MedicalStore.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\wwwroot\\css\\additem.css",
+      "SourceId": "MedicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\wwwroot\\",
+      "BasePath": "_content/MedicalStore",
+      "RelativePath": "css/additem.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\additem.css"
     },
     {
       "Identity": "C:\\Users\\DELL\\source\\repos\\MedicalStore\\MedicalStore\\wwwroot\\css\\header.css",

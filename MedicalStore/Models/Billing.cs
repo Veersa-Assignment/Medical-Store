@@ -4,16 +4,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MedicalStore.Models
 {
-    public class StoreManager
+    public class Billing
     {
-       
         [Key]
-        public string Email { get; set; }
+        public int id { get; set; }
         [Required]
         public string Name { get; set; }
-        public string Password { get; set; }
-        public DateTime CreatedDateTiem { get; set; } = DateTime.Now;
-        public string role { get; set; }
+        public string Address { get; set; }
+        public long Phone { get; set; }
+        public string MedicineName { get; set; }
+        public int Quantity { get; set; }
+       
 
     }
 }
