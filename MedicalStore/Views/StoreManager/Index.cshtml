@@ -1,18 +1,18 @@
 ﻿@model StoreManager;
 @if (TempData["failed"] != null)
 {
-    <h2>@TempData["failed"]</h2>
+	<h2>@TempData["failed"]</h2>
 
 }
 <style>
-    body {
-        background: linear-gradient(90deg, #C7C5F4, #776BCC);
-    }
+	body {
+		background: linear-gradient(90deg, #C7C5F4, #776BCC);
+	}
 </style>
 @*<form method="POST">
     <input asp-for="Email" />
     <input asp-for="Password" />
-    
+
     <button type="submit">Login</button>
 
 </form>*@
@@ -24,11 +24,14 @@
 					<div class="login__field">
 						<i class="login__icon fas fa-user"></i>
 						<input asp-for="Email" type="text" class="login__input" style="color:black" placeholder="Email">
-						<span asp-validation-for="Email"></span>
+						<br />
+						<span asp-validation-for="Email" class="text-danger"></span>
 					</div>
 					<div class="login__field">
 						<i class="login__icon fas fa-lock"></i>
 						<input asp-for="Password" type="password" class="login__input" placeholder="Password">
+						<br />
+						<span asp-validation-for="Password" class="text-danger"></span>
 					</div>
 					<button class="button login__submit" type="submit">
 						<span class="button__text">Login</span>
@@ -55,3 +58,8 @@
 		</div>
 	</div>
 </body>
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial"></partial>
+	}
+}

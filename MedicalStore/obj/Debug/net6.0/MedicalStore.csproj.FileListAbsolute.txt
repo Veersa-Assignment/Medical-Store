@@ -797,3 +797,6 @@ C:\Users\DELL\source\repos\MedicalStore\MedicalStore\bin\Debug\net6.0\System.Web
 C:\Users\DELL\source\repos\MedicalStore\MedicalStore\bin\Debug\net6.0\DevOne.Security.Cryptography.BCrypt.dll
 C:\Users\DELL\source\repos\MedicalStore\MedicalStore\bin\Debug\net6.0\BCrypt.Net-Next.dll
 C:\Users\DELL\source\repos\MedicalStore\MedicalStore\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+D:\DEMOMVC\Medical-Store\MedicalStore\bin\Debug\net6.0\DevOne.Security.Cryptography.BCrypt.dll
+D:\DEMOMVC\Medical-Store\MedicalStore\bin\Debug\net6.0\BCrypt.Net-Next.dll
+D:\DEMOMVC\Medical-Store\MedicalStore\bin\Debug\net6.0\BouncyCastle.Crypto.dll

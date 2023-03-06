@@ -8,40 +8,40 @@
 <h2 class="central">Pendings</h2>
 <div class="container1">
     <table class="table table-striped">
-    <thead>
-        <tr>
-          <th scope="col">Medicine</th>
-       <th scope="col">Stock in</th>
-      <th scope="col">Stock out</th>
-      <th scope="col">Expired</th>
-      <th scope="col">Final</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var obj in Model)
-        {
+        <thead>
             <tr>
-                <td>
-                    @obj.MedicineName
-                </td>
-                <td>
-                    @obj.StockIn
-                </td>
-                <td>
-                    @obj.StockOut
-                </td>
-                <td>
-                    @obj.Expired
-                </td>
-                <td>
-                    @obj.Final
-                    
-                </td>
-                <td>
-                    <a asp-controller="StoreManager" asp-action="Approved" asp-route-id="@obj.id"  >Approve</a>
-                </td>
+                <th scope="col">Medicine</th>
+                <th scope="col">Stock in</th>
+                <th scope="col">Stock out</th>
+                <th scope="col">Expired</th>
+                <th scope="col">Final</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>
+                        @obj.MedicineName
+                    </td>
+                    <td>
+                        @obj.StockIn
+                    </td>
+                    <td>
+                        @obj.StockOut
+                    </td>
+                    <td>
+                        @obj.Expired
+                    </td>
+                    <td>
+                        @obj.Final
+
+                    </td>
+                    <td>
+                        <a asp-controller="StoreManager" asp-action="Approved" asp-route-id="@obj.id">Approve</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

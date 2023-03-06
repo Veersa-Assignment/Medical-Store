@@ -2,13 +2,14 @@
 @using Microsoft.AspNetCore.Http
 @using MedicalStore.Controllers
 @inject IHttpContextAccessor HttpContextAccessor
-    <style>
-    .central{
-        text-align:center;
-        margin:3% auto;
+<style>
+    .central {
+        text-align: center;
+        margin: 3% auto;
     }
-    .heading{
-        margin:auto 20%;
+
+    .heading {
+        margin: auto 20%;
     }
 </style>
 <body class="bodyadd">
@@ -34,7 +35,7 @@
                     </li>
 
 
-                    
+
                 </ul>
                 <form class="d-flex">
 
@@ -45,7 +46,7 @@
     </nav>
     <h2 class="central">
         History
-        
+
 
     </h2>
 
@@ -61,7 +62,7 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach (var obj in Model)
+                @foreach (var obj in Model)
                 {
                     <tr class="table-light">
                         <td>

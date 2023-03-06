@@ -19,16 +19,25 @@
         <form class="glass-form" method="POST">
             <h2 class="central">Sell</h2>
             <input class="inputadd" asp-for="Name" placeholder="Buyer Name">
+            <span asp-validation-for="Name" class="text-danger"></span>
             <input class="inputadd" asp-for="Address" placeholder="Address">
+            <span asp-validation-for="Address" class="text-danger"></span>
             <input class="inputadd" asp-for="Phone" placeholder="Phone Number" />
-            
+            <span asp-validation-for="Phone" class="text-danger"></span>
+
             <input class="inputadd" asp-for="MedicineName" placeholder="" value="@med" readonly>
-          @* <select asp-for="MedicineName" asp-items="@Model.Inventories">
-                <option>Please select one</option>
+            @* <select asp-for="MedicineName" asp-items="@Model.Inventories">
+            <option>Please select one</option>
             </select>*@
-            <input class="inputadd" asp-for="Quantity" placeholder="Quantity   Available = @qty ">
+            <input class="inputadd" asp-for="Quantity" placeholder="Quantity Available = @qty ">
+            <span asp-validation-for="Quantity" class="text-danger"></span>
             <button type="submit">Make Bill</button>
 
         </form>
     </div>
 </body>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"></partial>
+    }
+}
