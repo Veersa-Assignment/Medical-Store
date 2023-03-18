@@ -18,6 +18,7 @@
         </div>
     </div>
 </nav>*@
+
 @model StoreKeeper;
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
@@ -25,37 +26,37 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarColor01">
+        <div id="fullCarousel" class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
                
 
             </ul>
             <form class="d-flex">
 
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">  <a style="text-decoration:none" class="nav-link text-dark" asp-area="" asp-controller="StoreManager" asp-action="Index">Login</a></button>
+                <button class="btn btn-secondary my-2 my-sm-0 radius" type="submit">  <a class="nav-link link text-dark" asp-area="" asp-controller="StoreManager" asp-action="Index"><b>Login</b></a></button>
                 @*<button class="btn btn-secondary my-2 my-sm-0" type="submit"><a asp-area="" style="text-decoration:none" asp-controller="StoreKeeper" asp-action="Index">Login as Store Keeper</a></button>*@
             </form>
         </div>
     </div>
 </nav>
-<<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="background:red;">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active" style="height:auto">
-            <img src="~/image/three.gif" class="d-block w-100" alt="...">
+    <div class="carousel-inner" style="height:90%;">
+        <div class="carousel-item active" >
+            <img src="~/image/three.gif" class="d-block w-100" alt="..." >
         </div>
         <div class="carousel-item">
-            <img src="~/image/four.png" class="d-block w-100" alt="...">
+            <img src="~/image/two.png" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="~/image/five.png" class="d-block w-100" alt="...">
+            <img src="~/image/six.png" class="d-block w-100" alt="...">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

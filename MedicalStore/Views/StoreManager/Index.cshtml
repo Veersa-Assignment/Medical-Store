@@ -1,9 +1,5 @@
 ﻿@model StoreManager;
-@if (TempData["failed"] != null)
-{
-	<h2>@TempData["failed"]</h2>
 
-}
 <style>
 	body {
 		background: linear-gradient(90deg, #C7C5F4, #776BCC);
@@ -16,27 +12,49 @@
     <button type="submit">Login</button>
 
 </form>*@
+@if (TempData["failed"] != null)
+{
+
+
+
+	<div class="alert alert-dismissible alert-danger" style="border-radius:10px;width:25%;text-align:center;margin:auto;">
+		<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+		<strong>@TempData["failed"]</strong> 
+	</div>
+	
+}
 <body>
+	
 	<div class="container">
+
 		<div class="screen">
 			<div class="screen__content">
 				<form class="login" method="POST">
 					<div class="login__field">
 						<i class="login__icon fas fa-user"></i>
-						<input asp-for="Email" type="text" class="login__input" style="color:black" placeholder="Email">
+						<input asp-for="Email" type="text" class="login__input" style="color:black" placeholder="Email" autocomplete="off">
 						<br />
 						<span asp-validation-for="Email" class="text-danger"></span>
 					</div>
 					<div class="login__field">
 						<i class="login__icon fas fa-lock"></i>
-						<input asp-for="Password" type="password" class="login__input" placeholder="Password">
+						<input asp-for="Password" type="password" class="login__input" placeholder="Password" autocomplete="off">
 						<br />
 						<span asp-validation-for="Password" class="text-danger"></span>
 					</div>
+				
 					<button class="button login__submit" type="submit">
 						<span class="button__text">Login</span>
 						<i class="button__icon fas fa-chevron-right"></i>
 					</button>
+					<br />
+					<div>
+						<i class="button__icon fas fa-chevron-left" style="font-size:0.9rem;">  <a style="text-decoration:none;display:inline-block;" class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Back</a></i>
+						@*<p style="display:inline-block" >Back</p>*@
+					</div>"
+					
+				
+				
 				</form>
 				@*<div class="social-login">
 				<h3><a href="kayıtol.php">Kayıt ol</a></h3>

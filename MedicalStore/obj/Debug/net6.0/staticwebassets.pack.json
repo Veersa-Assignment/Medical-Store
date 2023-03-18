@@ -33,12 +33,20 @@
       "PackagePath": "staticwebassets\\image\\one.mp4"
     },
     {
+      "Id": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\wwwroot\\image\\six.png",
+      "PackagePath": "staticwebassets\\image\\six.png"
+    },
+    {
       "Id": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\wwwroot\\image\\three.gif",
       "PackagePath": "staticwebassets\\image\\three.gif"
     },
     {
       "Id": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\wwwroot\\image\\two.gif",
       "PackagePath": "staticwebassets\\image\\two.gif"
+    },
+    {
+      "Id": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\wwwroot\\image\\two.png",
+      "PackagePath": "staticwebassets\\image\\two.png"
     },
     {
       "Id": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\wwwroot\\js\\site.js",

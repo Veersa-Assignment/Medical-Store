@@ -12,6 +12,7 @@
     .heading {
         margin: auto 20%;
     }
+    
 </style>
 
 @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -74,7 +75,7 @@
                 </ul>
                 <form class="d-flex">
 
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">  <a class="nav-link text-dark" asp-area="" asp-controller="StoreManager" asp-action="LogOut" style="text-decoration:none">Log Out</a></button>
+                    <button class="btn btn-secondary my-2 my-sm-0 radius" type="submit" >  <a class="nav-link text-dark" asp-area="" asp-controller="StoreManager" asp-action="LogOut" style="text-decoration:none">Log Out</a></button>
                 </form>
             </div>
         </div>
@@ -123,8 +124,8 @@
                             @obj.Final
                         </td>
                         <td>
-                            <button type="button" class="btn btn-dark">
-                                <a asp-controller="StoreManager" asp-action="Sell" asp-route-id="@obj.id" style="text-decoration:none;color:white">Sell</a>
+                            <button type="button" class=" radius btn btn-dark">
+                                <a asp-controller="StoreManager" asp-action="Sell" asp-route-id="@obj.id" style="text-decoration:none;color:white"> Sell </a>
                             </button>
 
                         </td>

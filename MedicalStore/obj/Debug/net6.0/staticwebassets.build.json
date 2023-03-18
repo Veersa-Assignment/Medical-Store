@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Xuqd9rig7iQCeEFqaYqYFdr1TaZdf0xSxTyiQQ+y6h4=",
+  "Hash": "SEBMqx8A5qBQJDQQtYe94U9Kx73Mig23Lj13bB1RMjo=",
   "Source": "MedicalStore",
   "BasePath": "_content/MedicalStore",
   "Mode": "Default",
@@ -170,6 +170,23 @@
       "OriginalItemSpec": "wwwroot\\image\\one.mp4"
     },
     {
+      "Identity": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\wwwroot\\image\\six.png",
+      "SourceId": "MedicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\wwwroot\\",
+      "BasePath": "_content/MedicalStore",
+      "RelativePath": "image/six.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\image\\six.png"
+    },
+    {
       "Identity": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\wwwroot\\image\\three.gif",
       "SourceId": "MedicalStore",
       "SourceType": "Discovered",
@@ -202,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\image\\two.gif"
+    },
+    {
+      "Identity": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\wwwroot\\image\\two.png",
+      "SourceId": "MedicalStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\wwwroot\\",
+      "BasePath": "_content/MedicalStore",
+      "RelativePath": "image/two.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\image\\two.png"
     },
     {
       "Identity": "D:\\DEMOMVC\\Medical-Store\\MedicalStore\\wwwroot\\js\\site.js",

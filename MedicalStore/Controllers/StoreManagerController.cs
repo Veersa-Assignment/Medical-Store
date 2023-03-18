@@ -46,10 +46,17 @@ namespace MedicalStore.Controllers
                     HttpContext.Session.SetString("Email", obj.Email);
                     return RedirectToAction("Logged_in_as_StoreManager");
                 }
-                
+                else
+                {
+                    TempData["failed"] = "Password Not Match";
+                }
 
+
+			}
+            else
+            {
+                TempData["failed"] = "Email not Registered";
             }
-            TempData["failed"] = "Try Again";
             return View();
         }
         public IActionResult Logged_in_as_StoreManager()

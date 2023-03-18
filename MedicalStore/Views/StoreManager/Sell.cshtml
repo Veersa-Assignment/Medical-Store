@@ -1,4 +1,8 @@
 ﻿@model Billing
+@using Microsoft.AspNetCore.Http
+@using MedicalStore.Controllers
+@inject IHttpContextAccessor HttpContextAccessor
+
 <style>
     .central {
         text-align: center;
@@ -10,7 +14,39 @@
     var qty = ViewBag.Qty;
 }
 <body class="bodyadd">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="StoreManager" asp-action="Logged_in_as_StoreManager">MedicalStore</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    @if (HttpContextAccessor.HttpContext.Session.GetString("role") == "StoreManager")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="StoreManager" asp-action="NewStoreKeeper">Add New Store Keeper</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="StoreManager" asp-action="Approve">Pendings</a>
+                        </li>
+                    }
+                    <li class="nav-item">
+                        <a class="nav-link " asp-area="" asp-controller="StoreManager" asp-action="AddItem">Add new Item</a>
+                    </li>
 
+
+                    <li class="nav-item">
+                        <a class="nav-link " asp-area="" asp-controller="StoreManager" asp-action="Billing">Billing</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+
+                    <button class="btn btn-secondary my-2 my-sm-0 radius" type="submit">  <a class="nav-link text-dark" asp-area="" asp-controller="StoreManager" asp-action="LogOut" style="text-decoration:none">Log Out</a></button>
+                </form>
+            </div>
+        </div>
+    </nav>
     <div class="glass-container">
         <div class="blob">
         </div>

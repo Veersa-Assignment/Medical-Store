@@ -27,7 +27,7 @@ namespace MedicalStore.Controllers
                 }
 
             }
-            TempData["failed"] = "Try Again";
+            
 
 
                 
